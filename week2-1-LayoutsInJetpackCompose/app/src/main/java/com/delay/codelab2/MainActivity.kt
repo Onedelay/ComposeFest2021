@@ -60,7 +60,7 @@ fun LayoutsCodelab() {
 
 @Composable
 fun BodyContent(modifier: Modifier = Modifier) {
-    Column(modifier = modifier) {
+    MyOwnColumn(modifier = modifier) {
         Text(text = "Hi there!")
         Text(text = "Thanks for going through the layouts codelab")
     }
