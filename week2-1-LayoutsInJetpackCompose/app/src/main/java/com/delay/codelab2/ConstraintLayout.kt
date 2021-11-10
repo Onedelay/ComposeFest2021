@@ -13,6 +13,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
 import com.delay.codelab2.ui.theme.Codelab2Theme
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Devices.AUTOMOTIVE_1024p
 
 
 @Composable
@@ -123,7 +125,15 @@ fun DecoupledConstraintLayout() {
 
 @Preview
 @Composable
-fun DecoupledConstraintLayoutPreview() {
+fun DecoupledConstraintLayoutPreviewPortrait() {
+    Codelab2Theme {
+        DecoupledConstraintLayout()
+    }
+}
+
+@Preview(widthDp = 360, heightDp = 180)
+@Composable
+fun DecoupledConstraintLayoutPreviewLandscape() {
     Codelab2Theme {
         DecoupledConstraintLayout()
     }
