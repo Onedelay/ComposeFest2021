@@ -25,6 +25,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Palette
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -98,14 +99,13 @@ fun Header(
     Surface(
         color = MaterialTheme.colors.onSurface.copy(alpha = 0.1f),
         contentColor = MaterialTheme.colors.primary,
-        modifier = modifier
+        modifier = modifier.semantics { heading() }
     ) {
         Text(
             text = text,
             style = MaterialTheme.typography.subtitle2,
             modifier = modifier
                 .fillMaxWidth()
-                .semantics { heading() }
                 .padding(horizontal = 16.dp, vertical = 8.dp)
         )
     }
@@ -172,11 +172,13 @@ private fun PostMetadata(
             withStyle(tagStyle) { append(" ${tag.uppercase(Locale.getDefault())} ") }
         }
     }
-    Text(
-        text = text,
-        style = MaterialTheme.typography.body2,
-        modifier = modifier
-    )
+    CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
+        Text(
+            text = text,
+            style = MaterialTheme.typography.body2,
+            modifier = modifier
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterialApi::class)
