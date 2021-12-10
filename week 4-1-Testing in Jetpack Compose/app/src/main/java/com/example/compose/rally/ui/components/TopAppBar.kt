@@ -97,6 +97,7 @@ private fun RallyTab(
             .padding(16.dp)
             .animateContentSize()
             .height(TabHeight)
+            .clearAndSetSemantics { contentDescription = text }
             .selectable(
                 selected = selected,
                 onClick = onSelected,
